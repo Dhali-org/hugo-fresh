@@ -15,17 +15,23 @@
     <div class="content-wrapper">
       <div class="columns is-vcentered">
         {{- range $clients }}
-        <div class="column is-4">
-          <figure class="testimonial">
-            <blockquote>
-              {{ .quote }}
-            </blockquote>
-            <div class="author">
-              <img src="{{ printf "/images/illustrations/faces/%s.png" (string .img) | relURL }}" alt=""/>
-              <h5>{{ .name }}</h5>
-              <span>{{ .job }}</span>
+        <div class="column">
+          <!-- <figure class="testimonial"> -->
+            {{ $context := . }}
+            <div style="background-color: white; border-radius: 10px; padding: 15px; box-shadow: 0 0 5px rgba(0,0,0,0.1); min-height: 350px;font-size: 18px;">
+              <em><strong>{{ $context.name }}</strong></em>
+
+              <br>
+              {{ range $context.quote }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 -9 30 30">
+                  <circle cx="15" cy="15" r="5" fill="#0000ff"/>
+                </svg>
+                {{ . | replaceRE "\n" "<br>" | safeHTML }}
+                <br>
+              {{ end }}
             </div>
-          </figure>
+            
+          <!-- </figure> -->
         </div>
         {{- end }}
       </div>

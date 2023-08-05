@@ -62,7 +62,7 @@ hero:
   image: illustrations/worker.svg
   # Footer logos (from static/images/logos/clients/*.svg)
   # urls are optional
-  clientlogos:
+  valueProps:
   - logo: systek
     url: https://google.com
   - logo: tribe
