@@ -1,0 +1,301 @@
+
+<style>
+
+    dialog {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 300px;
+        background-color: #ffffff;
+    }
+  
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+  
+    input[type="submit"]:hover, #closeDialog:hover, #openDialog:hover {
+        background-color: #45a049;
+    }
+  
+    input:focus, select:focus {
+        border-color: #4CAF50;
+    }
+  
+    #closeDialog {
+        margin-top: 10px;
+    }
+    .custom-dropdown {
+      position: relative;
+      margin-bottom: 10px;
+  }
+  
+  /* Common styles for both text inputs and select dropdowns */
+  .input-style {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      background-color: #fff;
+      cursor: pointer;
+      transition: border-color 0.2s;
+  }
+  
+  .input-style:focus {
+      border-color: #4CAF50;
+  }
+  
+  .custom-select {
+      position: relative;
+      display: inline-block;
+  }
+  
+  .custom-select select {
+      appearance: none;  /* Hide default arrow */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: 100%;
+      padding: 10px 30px 10px 10px; /* space on right for custom arrow */
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      background-color: #fff;
+      cursor: pointer;
+      transition: border-color 0.2s;
+  }
+  
+  /* Custom arrow */
+  .custom-select::after {
+      content: '▼'; /* this is a downwards arrow symbol */
+      position: absolute;
+      top: 45%;
+      right: 10px;
+      /* transform: translateY(-50%); */
+      pointer-events: none;  /* this makes sure clicking the arrow won't do anything */
+      font-size: 20px;
+      color: #777;
+  }
+  
+  .custom-select select:focus {
+      border-color: #4CAF50;
+  }
+  
+  textarea.input-style {
+      resize: vertical;
+  }
+  
+  .input-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+  }
+  
+  .info-icon {
+      /* position: absolute;
+      right: 10px;
+      top: 5%;
+      transform: translateY(-100%); */
+      cursor: pointer;
+      background-color: #4CAF50; /* Color of the info icon */
+      color: #fff; /* Text color inside the icon */
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px; /* Vertically center the 'i' text */
+      font-size: 14px;
+      user-select: none;
+  }
+  
+  label, .info-icon {
+      display: inline-block;
+      vertical-align: middle;
+  }
+  
+  .info-tooltip {
+      display: none;
+      position: relative !important;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      right:200px;
+      border-radius: 5px;
+      z-index: 1000 !important;  /* Higher z-index to ensure it's on top */
+      /* max-width: 200px; */
+      width: 200px;
+  }
+  .label-container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+  }
+  
+  </style>
+  
+    <!-- The dialog form -->
+    <dialog id="cryptoDialog">
+        <form id="myForm">
+            <!-- Crypto Wallet Address -->
+            <div class="label-container">
+            <label for="walletAddress">Wallet Address: </label>
+            <span class="info-icon">i
+                <div class="info-tooltip">The wallet that your earnings will be paid to. Make sure it aligns with your selected currency below.</div>
+            </span>
+            </div>
+            <input type="text" class="input-style" id="walletAddress" name="walletAddress" required placeholder="Enter your wallet address">
+            <br>
+            <div class="custom-select" >
+            <div class="label-container">
+                <label for="cryptoType">Select currency: </label>
+                <span class="info-icon" data-info="The currency type of your wallet selected above.">i
+                <div class="info-tooltip">The currency type of your wallet.</div>
+                </span>
+            </div>
+            <select id="cryptoType" name="cryptoType">
+                <option value="BTC">BTC</option>
+                <option value="ETH">ETH</option>
+                <option value="XRP">XRP</option>
+            </select>
+            </div>
+        
+            <br>
+            <!-- Auth Token -->
+            <div class="label-container">
+            <label for="baseAPIUrl">API URL: </label>
+            <span class="info-icon">i
+                <div class="info-tooltip">The URL entrypoint for the API you want to monetise.<br><br>For example: https://my-cool-api/run</div></span>
+            </div>
+            <input type="text" class="input-style" id="baseAPIUrl" name="baseAPIUrl" required placeholder="Enter your API's base URL">
+
+            <br>
+            <!-- Auth Token -->
+            <div class="label-container">
+            <label for="cost">Cost per request: </label>
+
+            <span class="info-icon" data-info="How much your users will be charged in your currency of choice, per request, for using your API">i
+                <div class="info-tooltip">How much your users will be charged in your currency of choice, per request, for using your API</div></span>
+            </div>
+            <input type="text" class="input-style" id="cost" name="cost" required placeholder="Amount charged per request">
+
+            <br>
+            <!-- Auth Token -->
+
+            <!-- <div>
+            <label for="authToken" rows="4">Auth Token: </label>
+            <span class="info-icon" data-info="This is the ">i</span>
+            </div>
+            <textarea class="input-style" id="authToken" name="authToken" required placeholder="Enter your auth token" rows="4"></textarea>
+
+            <br> -->
+            <button type="submit" class="button cta is-large rounded secondary-btn raised" id="submitDialog">
+            Start earning
+            </button>
+            <a class="button cta is-large rounded secondary-btn raised" id="closeDialog">
+            Close
+            </a>
+        </form>
+    </dialog>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+
+    <script>
+        // JavaScript to handle opening and closing of the dialog
+        const dialog = document.getElementById('cryptoDialog');
+        const openDialogButtons = document.querySelectorAll('[data-dialog]');
+        const closeBtn = document.getElementById('closeDialog');
+        const submitBtn = document.getElementById('submitDialog');
+
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyBro8QN3zyJwyo92lYUMPwsyRVPLLGOTcs",
+        authDomain: "dhali-prod.firebaseapp.com",
+        projectId: "dhali-prod",
+        storageBucket: "dhali-prod.appspot.com",
+        messagingSenderId: "1042340549063",
+        appId: "1:1042340549063:web:3dc69cffe6d3c0746189e2",
+        //measurementId: "G-6TPZFK7NQ6"
+        };
+        var app = firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore(app)
+
+        openDialogButtons.forEach(button => {
+            const dialogType = button.getAttribute('data-dialog');
+            button.addEventListener('click', function(event)
+            {
+                db.collection("auth-by-pay").add({
+                "clicked": true,
+                "time": new Date(),
+                "button": dialogType
+                })
+                .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+                })
+                .catch((error) => {
+                console.error("Error adding document: ", error);
+                });
+                dialog.showModal();
+            });});
+        closeBtn.addEventListener('click', () => dialog.close());
+
+        document.addEventListener('DOMContentLoaded', function() {
+        console.log('Document loaded');
+
+        const infoIcons = document.querySelectorAll('.info-icon');
+        console.log(`Found ${infoIcons.length} info icons`);
+
+        infoIcons.forEach(icon => {
+            let tooltip = icon.querySelector('.info-tooltip');  // Find the tooltip associated with the current icon
+
+            icon.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent the event from bubbling to the document
+                console.log("clicked info");
+                
+                if (tooltip.style.display == 'block') {
+                    tooltip.style.display = 'none';
+                } else {
+                    document.querySelectorAll('.info-tooltip').forEach(t => t.style.display = 'none');
+                    tooltip.style.display = 'block';
+                    }
+            });
+        });
+
+        // Close tooltip when clicking outside
+        document.addEventListener('click', function() {
+            const existingTooltip = document.querySelector('.info-tooltip[style*="block"]');
+            if (existingTooltip) {
+                console.log('Click outside tooltip, hiding tooltip');
+                existingTooltip.style.display = 'none';
+            }
+        });
+    });
+
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        
+        const walletAddress = e.target.walletAddress.value;
+        const crypto = e.target.cryptoType.value;
+        const cost = e.target.cost.value;
+        const baseAPIUrl = e.target.baseAPIUrl.value;
+
+        // Send data to Firestore
+        db.collection("auth-by-pay").add({
+        walletAddress,
+        crypto,
+        baseAPIUrl,
+        cost
+        })
+        .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+        console.error("Error adding document: ", error);
+        });
+        e.target.reset(); 
+        alert("Thank you for registering your interest");
+    });
+    </script>

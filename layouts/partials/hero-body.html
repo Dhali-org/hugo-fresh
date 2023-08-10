@@ -16,14 +16,41 @@
           {{ . }}
         </h1>
         {{ end }}
+        <!-- <p class="has-text-centered mt-20"> -->
+          <a class="button cta is-large rounded secondary-btn raised" data-dialog="button1">
+            Try it now
+          </a>
+        <!-- </p> -->
       </div>
       <div class="column is-5">
         <div class="has-text-centered">
           <!-- <figure class="image is-4by3"> -->
-            <img src="{{ printf "/images/%s" $image | relURL }}" alt="Description" style="max-width: 200px;">
+            <img class="responsive-image" src="{{ printf "/images/%s" $image | relURL }}" alt="Description">
           <!-- </figure> -->
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+.hero-body .responsive-image {
+    width: 250px;
+    display: block;
+    margin: 0 auto; /* This centers the image */
+}
+
+/* When the screen width is 768px or less (common breakpoint for tablets and below) */
+@media only screen and (max-width: 768px) {
+  
+    .hero-body .responsive-image {
+        width: 150px; /* Or whatever width you want for small screens */
+        margin-top: 0; /* This ensures the image is at the top */
+    }
+
+    /* Adjust columns to stack vertically on small screens */
+    .columns.is-vcentered {
+        flex-direction: column-reverse !important;
+    }
+}
+</style>
