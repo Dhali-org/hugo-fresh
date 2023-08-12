@@ -4,17 +4,17 @@
 {{- $buttonText := index $hero "buttontext" }}
 {{- $buttonLink := index $hero "buttonlink" }}
 {{- $image      := index $hero "image" }}
-<div class="hero-body">
-  <div class="container">
+<div class="hero-body" style="background-color: #100c27;">
+  <div class="container" >
     <div class="columns is-vcentered">
       <div class="column is-5 is-offset-2 landing-caption">
-        <h1 class="title is-1 is-bold is-spaced">
+        <h1 class="title is-1 is-bold is-spaced dynamic-color-title" style="color:whitesmoke;">
           {{ $title }}
         </h1>
         {{ with $subtitle }}
-        <h1 class="title is-3 is-muted">
+        <p class="subtitle is-3 is-muted">
           {{ . }}
-        </h1>
+        </p>
         {{ end }}
         <!-- <p class="has-text-centered mt-20"> -->
           <a class="button cta is-large rounded secondary-btn raised" data-dialog="button1">
@@ -32,6 +32,33 @@
     </div>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let title = document.querySelector('.dynamic-color-title');
+    let words = title.innerText.split(' ');
+
+    // Convert each word into a span for individual color manipulation
+    title.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+
+    let spans = title.querySelectorAll('span');
+    let currentIndex = 0;
+    
+    setInterval(function() {
+        spans.forEach((span, index) => {
+            if(index === currentIndex) {
+                span.style.color = '#00BFFF';
+            } else {
+                span.style.color = 'whitesmoke';
+            }
+        });
+
+        // Move to the next word or wrap around
+        currentIndex = (currentIndex + 1) % spans.length;
+    }, 1000); // Change color every second
+});
+
+</script>
 
 <style>
 .hero-body .responsive-image {

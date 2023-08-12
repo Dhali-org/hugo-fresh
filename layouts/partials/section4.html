@@ -2,7 +2,9 @@
 {{- $title    := index $section4 "title" }}
 {{- $subtitle := index $section4 "subtitle" }}
 {{- $clients  := index $section4 "clients" }}
-<section class="section is-medium section-secondary" id="section4">
+{{- $hero        := .Site.Params.hero }}
+{{- $valueProps := index $section4 "valueProps" }}
+<section class="section is-medium section-feature-grey" id="section4">
   <div class="container">
 
     <div class="title-wrapper has-text-centered">
@@ -11,30 +13,103 @@
       <h3 class="subtitle is-5 light-text">{{ . }}</h3>
       {{- end }}
     </div>
+    <br>
 
-    <div class="content-wrapper">
-      <div class="columns is-vcentered">
-        {{- range $clients }}
-        <div class="column">
-          <!-- <figure class="testimonial"> -->
-            {{ $context := . }}
-            <div style="background-color: white; border-radius: 10px; padding: 15px; box-shadow: 0 0 5px rgba(0,0,0,0.1); min-height: 350px;font-size: 18px;">
-              <em><strong>{{ $context.name }}</strong></em>
-
-              <br>
-              {{ range $context.quote }}
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 -9 30 30">
-                  <circle cx="15" cy="15" r="5" fill="#0000ff"/>
-                </svg>
-                {{ . | replaceRE "\n" "<br>" | safeHTML }}
-                <br>
-              {{ end }}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <div class="hero-foot mb-20" style="text-align: left;">
+      <div class="columns is-centered">
+        <div class="column is-centered">
+          <ul id="responsive-list" style="list-style: none; display: flex; justify-content: center; flex-wrap: wrap; width: 100%;">
+            {{- range $valueProps }}
+            <div class="rounded-border-container">
+              <div class="icon-container">
+                <i class="material-icons">{{ .icon }}</i>
+              </div>
+              <li style="margin-top: -20px; margin-bottom: 20px; margin-left: 20px; margin-right: 20px">
+                <p style="white-space: normal; margin: 0 0 0 10px; ">
+                  <strong>{{ .text }}</strong> <br>
+                  {{ .subText | replaceRE "\n" "<br>" | safeHTML }} 
+                </p>
+              </li>
             </div>
-            
-          <!-- </figure> -->
+              {{- end }}
+            </ul>
         </div>
-        {{- end }}
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('scroll', function() {
+    const section1 = document.getElementById('hero');
+    const section2 = document.getElementById('section4');
+    
+    const scrollPos = window.scrollY || window.scrollTop;
+    const section2Pos = section2.offsetTop;
+
+    if (scrollPos > section2Pos - window.innerHeight && scrollPos < section2Pos) {
+        const percentageScrolled = (scrollPos - (section2Pos - window.innerHeight)) / window.innerHeight;
+        
+        // This is a simple linear gradient calculation
+        const newColor = blendColors($section-1-color, $section-2-grey, percentageScrolled);
+        
+        section1.style.backgroundColor = newColor;
+        section2.style.backgroundColor = newColor;
+    }
+});
+</script>
+
+<style>
+  @media (max-width: 768) {
+    #responsive-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+.rounded-border-container {border: 2px solid #ffffff;
+  border-radius: 10px;
+  padding-top: 20px;  /* Gives space for the icon */
+  margin: 20px; 
+  background-color: #0000ff;
+  color: #FFFFFF; 
+}
+
+.rounded-border-container p {
+  flex-direction: column;
+  display: flex;
+  color: #ffffffc5;  /* Ensure all text elements inside have white color */
+  width: 300px; 
+  height: 100px; 
+  font-size: 18px;
+  text-align: center;
+}
+
+.rounded-border-container strong {
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  color: #FFFFFF;  /* Ensure all text elements inside have white color */
+}
+
+.icon-container {
+  border-radius: 5px;
+  width: 40px;  /* Adjust as per your icon's size */
+  height: 40px;
+  position: relative;
+  top: -25%;  /* Half of the icon's height to make it appear half outside the border */
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to left bottom, #2d649b, #00BFFF); /* Blue example colors */
+z-index: 1;
+}
+.material-icons {
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    position: absolute;
+    top: 8px;
+    left: 8px; 
+}
+
+</style>

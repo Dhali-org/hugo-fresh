@@ -3,7 +3,7 @@
 {{- $navbarLogo       := .Site.Params.navbarlogo }}
 {{- $navbarLogoWidth  := .Site.Params.navbarlogo.width | default 112 }}
 {{- $navbarLogoHeight := .Site.Params.navbarlogo.width | default 28 }}
-<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation" style="border-bottom: 1px solid #d8d8d8; background-color: #0e0b23;">
   <div class="container">
     <div class="navbar-brand">
       {{- if $navbarLogo}}
