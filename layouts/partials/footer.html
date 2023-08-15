@@ -4,6 +4,7 @@
 {{- $socialMedia := index $footer "socialmedia" }}
 {{- $bulmaLogo   := index $footer "bulmalogo" }}
 {{- $socialMediaTitle    := index $footer "socialmediatitle" }}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
 <footer class="footer footer-dark">
   <div class="container">
     <p style="font-size:12px; ">Copyright © 2023 Dhali Holdings Ltd. All Rights Reserved.</p>
@@ -41,7 +42,7 @@
               <div class="level-left">
                 {{- range $socialMedia }}
                 <a class="level-item" href="{{ .link }}">
-                  <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                  <span class="icon"><i class="fab fa-{{ .icon }}"></i></span>
                 </a>
                 {{- end }}
               </div>
