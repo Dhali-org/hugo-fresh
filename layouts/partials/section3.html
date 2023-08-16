@@ -12,9 +12,15 @@
     </div>
     <br>
     <p class="has-text-centered mt-20">
-      <a class="button cta is-large rounded secondary-btn raised" data-dialog="button2">
-        Try it now
-      </a>
+      {{- if $buttonText }}
+        <a class="button cta is-large rounded secondary-btn raised" href="{{ $buttonLink }}" target="_blank">
+          {{ $buttonText }}
+        </a>  
+      {{ else }}
+        <a class="button cta is-large rounded secondary-btn raised" data-dialog="button2">
+          Try it now
+        </a>
+      {{- end }}
     </p>
     <br><br>
     <div class="columns">

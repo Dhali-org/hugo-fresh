@@ -17,9 +17,15 @@
         </p>
         {{ end }}
         <!-- <p class="has-text-centered mt-20"> -->
-          <a class="button cta is-large rounded secondary-btn raised" data-dialog="button1">
-            Try it now
-          </a>
+          {{- if $buttonText }}
+            <a class="button cta is-large rounded secondary-btn raised" href="{{ $buttonLink }}" target="_blank">
+              {{ $buttonText }}
+            </a>  
+          {{ else }}
+            <a class="button cta is-large rounded secondary-btn raised" data-dialog="button1">
+              Try it now
+            </a>
+          {{- end }}
         <!-- </p> -->
       </div>
       <div class="column is-5">
