@@ -37,7 +37,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
 <script>
-  const firebaseConfig = {
+  const firebaseEmailConfig = {
     apiKey: "AIzaSyBro8QN3zyJwyo92lYUMPwsyRVPLLGOTcs",
     authDomain: "dhali-prod.firebaseapp.com",
     projectId: "dhali-prod",
@@ -46,11 +46,11 @@
     appId: "1:1042340549063:web:3dc69cffe6d3c0746189e2",
     //measurementId: "G-6TPZFK7NQ6"
   };
-  var app = firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore(app)
-  const collection = db.collection("emails-from-ads")
-  let submitButton = document.getElementById("form-submit")
-  submitButton.addEventListener("click", (e) => {
+  var appEmail = firebase.initializeApp(firebaseEmailConfig);
+  var dbEmail = firebase.firestore(appEmail)
+  const collectionEmails = dbEmail.collection("emails-from-ads")
+  let submitButtonEmails = document.getElementById("form-submit")
+  submitButtonEmails.addEventListener("click", (e) => {
     e.preventDefault()
     let email = document.getElementById("email").value
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -60,11 +60,10 @@
       //  'event_label': 'Email submission success'
       //});
 
-      collection.doc().set(
+      collectionEmails.doc().set(
         {
           email: email,
           date: new Date(),
-          source: "auth-by-pay"
         }
       )
       document.getElementById("email").value = ""
