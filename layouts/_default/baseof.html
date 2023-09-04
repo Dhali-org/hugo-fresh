@@ -7,13 +7,13 @@
 
     <script type="text/javascript" src="https://app.termly.io/embed.min.js" data-auto-block="off"
     data-website-uuid="1b1475d2-3c77-4545-b5fc-785d862fd817"></script>
-    <!-- GTM_HEAD -->
+    {{ partial "gtm_head.html" | safeHTML }}
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
 
   </head>
   <body>
-    <!-- GTM_BODY -->
+    {{ partial "gtm_body.html" | safeHTML }}
     {{ if ne .Site.Params.preloader false }}
     <!-- Preloader -->
     <div id="preloader">
