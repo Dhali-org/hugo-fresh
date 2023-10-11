@@ -7,7 +7,7 @@
 {{- $action := index $section5 "action" }}
 {{- $method := index $section5 "method" }}
 {{- $buttonText := index $section5 "buttontext" | default "Send Message" }}
-<section class="section section-light-grey is-medium" id="section5">
+<section class="section section-light-grey is-medium" id="section5"  style="background-color: #f5f5f5;">
   <div class="container">
     <div class="title-wrapper has-text-centered">
       <h2 class="title is-2 is-spaced">{{ $title }}</h2>
@@ -25,8 +25,7 @@
                   placeholder="Enter your email address">
               </div>
               <div class="form-footer has-text-centered mt-10">
-                <button class="button signup-button rounded secondary-btn raised" id="form-submit">{{ $buttonText
-                  }}</button>
+                <button class="button signup-button rounded secondary-btn raised" id="form-submit">{{ $buttonText }}</button>
               </div>
             </div>
             </form>

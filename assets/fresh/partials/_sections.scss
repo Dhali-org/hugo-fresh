@@ -8,12 +8,10 @@ Section Styles
         background-color: $light-grey;
     }
     &.section-feature-grey {
-        background: linear-gradient(to bottom, $section-grey, $section-2-grey);
-        transition: background-color 0.3s ease-in-out;
+        background-color: $section-2-grey;
     }
     &.section-feature-2-grey {
-        background: linear-gradient(to bottom, $section-2-grey, $section-grey);
-        transition: background-color 0.3s ease-in-out;
+        background-color: $section-grey;
     }
     &.section-secondary {
         background-color: $secondary;

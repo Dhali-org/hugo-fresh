@@ -9,6 +9,7 @@ Hero styles
         font-family: 'Open Sans', sans-serif;
     }
     .title {
+        font-size: 64px;
         &.is-bold {
             font-weight: 700;
         }
@@ -16,6 +17,9 @@ Hero styles
     .subtitle {
         &.is-muted {
             color: $muted-grey;
+        }
+        &.is-bold {
+            font-weight: 700;
         }
     }
 }
