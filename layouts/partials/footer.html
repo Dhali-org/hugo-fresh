@@ -5,57 +5,36 @@
 {{- $bulmaLogo   := index $footer "bulmalogo" }}
 {{- $socialMediaTitle    := index $footer "socialmediatitle" }}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
-<footer class="footer footer-dark">
-  <div class="container">
-    <p style="font-size:12px; ">Copyright © 2023 Dhali Holdings Ltd. All Rights Reserved.</p>
-    <div class="columns">
-      {{- if $logo }}
-      <div class="column">
-        <div class="footer-logo">
-          <img src="{{ printf "/images/logos/%s" $logo | relURL }}">
-        </div>
-      </div>
-      {{- end }}
-      {{- range $quickLinks }}
-        <div class="column">
-          <div class="footer-column">
-            <div class="footer-header">
-                <h3>{{ .title }}</h3>
-            </div>
-            <ul class="link-list">
-              {{- range .links }}
-              <li>
-                <a href="{{ .link }}">
-                  {{ .text }}
-                </a>
-              </li>
-              {{- end }}
-            </ul>
-          </div>
-        </div>
-      {{- end }}
-      <div class="column">
-        <div class="footer-column">
-          <div class="footer-header">
-            <h3>{{ $socialMediaTitle }}</h3>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                {{- range $socialMedia }}
-                <a class="level-item" href="{{ .link }}">
-                  <span class="icon"><i class="fab fa-{{ .icon }}"></i></span>
-                </a>
-                {{- end }}
-              </div>
-            </nav>
-
-            {{- if $bulmaLogo }}
-            <a href="https://bulma.io" target="_blank">
-              <img src="{{ "/images/logos/made-with-bulma.png" | relURL }}" alt="Made with Bulma" width="128" height="24">
-            </a>
-            {{- end }}
-          </div>
-        </div>
-      </div>
+<footer class="footer footer-waves">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
     </div>
-  </div>
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/dhali_io">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/company/98120426">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://github.com/orgs/Dhali-org/repositories">
+          <ion-icon name="logo-github"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://discord.com/channels/1133476665390018779">
+          <ion-icon name="logo-discord"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.youtube.com/channel/UC8Mx_KbOQ4E7y50mSmlTx4w">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="dhali.io/docs/">Documentation</a></li>
+      <li class="menu__item"><a class="menu__link" href="https://dhali.substack.com/">Blog</a></li>
+      <li class="menu__item"><a class="menu__link" href="mailto:info@dhali.io">Contact</a></li>
+
+    </ul>
+    <p>&copy;2023 Dhali Holdings Ltd | All Rights Reserved</p>
 </footer>

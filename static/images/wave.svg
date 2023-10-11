@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="853.33331"
+   height="86.666664"
+   viewBox="0 0 853.33331 86.666664"
+   sodipodi:docname="wave.svg"
+   inkscape:export-filename="wave.svg"
+   inkscape:export-xdpi="112.5"
+   inkscape:export-ydpi="112.5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1">
+      <rect
+         style="fill:#0000ff;stroke-width:1.00157"
+         id="rect2"
+         width="853.33331"
+         height="86.666664"
+         x="0"
+         y="-8.5899092e-09" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4816097"
+     inkscape:cx="426.56308"
+     inkscape:cy="43.196261"
+     inkscape:window-width="1918"
+     inkscape:window-height="1078"
+     inkscape:window-x="1467"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <path
+       style="fill:#0000ff"
+       d="M 0,57.502426 V 28.805402 L 14.964257,24.255673 C 43.847636,15.473978 88.535793,7.1386971 127.38534,3.0853581 c 28.81512,-3.00640495 96.12332,-4.07874495 127.47735,-2.030942 58.64984,3.830552 105.1077,11.4232039 171.85598,28.0865779 82.08728,20.492682 133.3503,27.641221 207.33332,28.912269 62.322,1.070708 103.79448,-2.23764 155.86771,-12.433902 20.2248,-3.960141 55.86321,-13.519096 64.05146,-16.90869 2.18003,-0.902442 4.94838,1.054228 2.33333,27.843415 l -2.97118,30.112578 c -142.1893,0.03419 -284.81218,0.466499 -426.66665,0 H 0 Z"
+       id="path1"
+       sodipodi:nodetypes="ccsssssssscccc"
+       clip-path="url(#clipPath1)" />
+  </g>
+</svg>
