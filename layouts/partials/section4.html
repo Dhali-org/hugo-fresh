@@ -68,15 +68,18 @@
     }
   }
 
-.rounded-border-container {border: 2px solid #000000;
+.rounded-border-container {
   border-radius: 10px;
   padding-top: 20px;  /* Gives space for the icon */
   margin: 20px; 
   background-color: #0000ff;
   color: #FFFFFF; 
+  align-items: center;
+  justify-content: center;
 }
 
 .rounded-border-container p {
+  margin-bottom: 20px;
   flex-direction: column;
   display: flex;
   color: #ffffffc5;  /* Ensure all text elements inside have white color */
@@ -89,6 +92,8 @@
 .rounded-border-container strong {
   text-align: center;
   flex-direction: column;
+  margin-top: -1px;
+  margin-bottom: -10px;
   display: flex;
   color: #FFFFFF;  /* Ensure all text elements inside have white color */
 }
@@ -101,7 +106,7 @@
   top: -25%;  /* Half of the icon's height to make it appear half outside the border */
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(to left bottom, #2d649b, #00BFFF); /* Blue example colors */
+  background: #00BFFF;
 z-index: 1;
 }
 .material-icons {
