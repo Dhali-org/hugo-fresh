@@ -1,7 +1,7 @@
-{{- $section3   := .Site.Params.section3 }}
-{{- $title      := index $section3 "title" }}
-{{- $subtitle   := index $section3 "subtitle" }}
-{{- $image      := index $section3 "image" }}
+{{- $section3 := .Site.Params.section3 }}
+{{- $title := index $section3 "title" }}
+{{- $subtitle := index $section3 "subtitle" }}
+{{- $image := index $section3 "image" }}
 {{- $buttonText := index $section3 "buttontext" }}
 {{- $buttonLink := index $section3 "buttonlink" }}
 <section class="section is-medium section-feature-grey" id="section3">
@@ -11,9 +11,14 @@
       <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
     </div>
     <br>
-    <p align="center">
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jDX_HwcXvGw?si=vmNjKX7UJwxRxNs2" title="Dhali - The Web3 API Gateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </p>
+    <div class="video-container">
+      <p align="center">
+        <iframe src="https://www.youtube-nocookie.com/embed/jDX_HwcXvGw?si=vmNjKX7UJwxRxNs2"
+          title="Dhali - The Web3 API Gateway" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </p>
+    </div>
     <br><br>
   </div>
 </section>

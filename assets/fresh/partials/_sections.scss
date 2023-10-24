@@ -30,6 +30,22 @@ Section Styles
     }
 }
 
+// Video containers
+.video-container {
+    position: relative;
+    width: 60vw; /* This sets the width to 70% of the viewport width */
+    padding-top: 44.622%; /* This percentage gives you a 16:9 aspect ratio */
+    margin: 0 auto; /* This centers the container in the window */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 //Titles
 .title-wrapper {
     max-width: 500px;
