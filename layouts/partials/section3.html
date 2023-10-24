@@ -4,28 +4,16 @@
 {{- $image      := index $section3 "image" }}
 {{- $buttonText := index $section3 "buttontext" }}
 {{- $buttonLink := index $section3 "buttonlink" }}
-<section class="section section-feature-2-grey is-medium" id="section3">
+<section class="section is-medium section-feature-grey" id="section3">
   <div class="container">
     <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2" style="color: whitesmoke;">{{ $title }}</h2>
+      <h2 class="title is-2" style="color: dark-text;">{{ $title }}</h2>
       <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
     </div>
     <br>
     <p align="center">
-      <iframe max-width="560" height="315" src="https://www.youtube-nocookie.com/embed/QaC_-lBG9hc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </p>
-    <p class="has-text-centered mt-20">
-      {{- if $buttonText }}
-        <a class="button cta is-large rounded secondary-btn raised" href="{{ $buttonLink }}" target="_blank">
-          {{ $buttonText }}
-        </a>  
-      {{ else }}
-        <a class="button cta is-large rounded secondary-btn raised" data-dialog="button2">
-          Try it now
-        </a>
-      {{- end }}
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jDX_HwcXvGw?si=vmNjKX7UJwxRxNs2" title="Dhali - The Web3 API Gateway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </p>
     <br><br>
   </div>
 </section>
-
