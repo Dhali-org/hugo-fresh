@@ -20,5 +20,151 @@
       </p>
     </div>
     <br><br>
+    <br><br>
+    
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <div class="hero-foot mb-20" style="text-align: left;">
+    <div class="columns is-centered">
+      <div class="column is-centered">
+        <ul id="responsive-list" style="list-style: none; display: flex; justify-content: center; flex-wrap: wrap; width: 100%; align-items: center;">
+          <li style="margin-top: 0px; margin-bottom: 30px; margin-left: 20px; margin-right: 20px"></li>
+            <div id="non-pulsing-container">
+              <div class="title-wrapper has-text-centered">
+                <h2 class="title is-2" style="color: dark-text;">Step 1</h2>
+                <h3 class="subtitle is-5 is-muted">Link your wallet</h3>
+                <br>
+                <h2 class="title is-2" style="color: dark-text;">Step 2</h2>
+                <h3 class="subtitle is-5 is-muted">Link your API</h3>
+                <br>
+                <h2 class="title is-2" style="color: dark-text;">Step 3</h2>
+                <h3 class="subtitle is-5 is-muted"> Earn</h3>
+              </div>
+            </div>
+          </li>
+          
+          <li style="margin-top: 30px; margin-bottom: 30px; margin-left: 20px; margin-right: 20px"></li>
+            <div class="title-wrapper has-text-centered">
+              <div id="pulsing-container">
+                <div id="clock-container">
+                  <h3 class="subtitle is-5 is-muted" style="color: dark-text;">Next payout to API owners:</h2>
+                    <div id="clock"></div>
+                      <br>
+                    <h3 class="subtitle is-5 is-muted" style="color: dark-text;">Total paid out:</h2>
+                      <div id="xrp-amount"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
   </div>
+</div>
+  
+  
+
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const clock = document.getElementById('clock');
+    const xrpAmount = document.getElementById('xrp-amount');
+    xrpAmount.textContent = '123456.78 XRP';
+
+    function updateClock() {
+        const now = new Date();
+        const nextSunday = getNextSunday(now);
+        const timeDifference = nextSunday - now;
+
+        if (timeDifference >= 0) {
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            clock.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+            clock.textContent = 'Calculating...';
+        }
+    }
+
+    function getNextSunday(currentDate) {
+        let nextSunday = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+        nextSunday.setDate(nextSunday.getDate() + (7 - nextSunday.getDay()) % 7);
+        // Adjust to 1st or 3rd Sunday
+        if (nextSunday.getDate() > 7 && nextSunday.getDate() <= 14) {
+            nextSunday.setDate(nextSunday.getDate() + 14);
+        } else if (nextSunday.getDate() > 14) {
+            nextSunday.setMonth(nextSunday.getMonth() + 1);
+            nextSunday.setDate(1);
+        }
+        return nextSunday;
+    }
+
+    setInterval(updateClock, 1); // Update every millisecond
+});
+
+</script>
+
+<style>
+
+/* Add to your existing CSS */
+
+
+
+#non-pulsing-container {
+    border-radius: 10%; /* Circular shape */
+    width: 500px; /* Circle size */
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(175, 168, 191, 0.2); /* Semi-transparent green */
+    box-shadow: 0 0 15px 10px rgba(0, 13, 255, 0.7); /* Blurred edges */
+}
+
+#pulsing-container {
+    border-radius: 50%; /* Circular shape */
+    width: 500px; /* Circle size */
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(175, 168, 191, 0.2); /* Semi-transparent green */
+    animation: pulseAnimation 2s infinite; /* Pulsating effect */
+}
+
+@keyframes pulseAnimation {
+    0%, 100% {
+      box-shadow: 0 0 10px 10px rgba(0, 13, 255, 0.7); /* Blurred edges */
+      background-color: rgba(175, 168, 191, 0.2); /* Semi-transparent green */
+    
+    }
+    50% {
+      box-shadow: 0 0 5px 5px rgba(0, 13, 255, 0.7); /* Blurred edges */
+      background-color: rgba(175, 168, 191, 0.2); /* Semi-transparent green */
+    
+    }
+}
+
+/* Adjust the clock container to fit inside the circle */
+#clock-container {
+    text-align: center;
+    padding: 20px;
+}
+
+#clock, #xrp-amount {
+    font-size: 3em;
+    margin: 20px 0;
+    color: rgba(0, 13, 255, 0.7);
+    font-family: 'Digital-7 Mono', sans-serif; /* Use a digital-style font */
+    letter-spacing: 3px;
+}
+
+#clock {
+    font-size: 3em;
+    margin: 20px 0;
+    color: rgba(0, 13, 255, 0.7);
+    font-family: 'Digital-7 Mono', sans-serif; /* Use a digital-style font */
+    letter-spacing: 3px;
+}
+</style>
